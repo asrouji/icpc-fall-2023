@@ -16,7 +16,4 @@ for k in range(1, len(games)):
     if alice_wins > bob_wins:
         winning_k.append(k)
 
-print(len(winning_k))
-
-for k in winning_k:
-    print(k, end=" ")
+print(f'{len(winning_k)}\n{" ".join(str(k) for k in winning_k)}')
