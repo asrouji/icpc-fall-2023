@@ -1,20 +1,7 @@
 import sys
+import functools
 
-# stores probability of each character
-probs = {}
+for line in (input := sys.stdin.readlines())[(br := input.index('\n')) + 1:]:
+    print('{:.3f}'.format(functools.reduce(lambda prob, char: prob * ({ letter: float(prob) for letter, prob in (line.split(' ') for line in input[:br]) }.get(char) or 1), line.strip(), 1)))
 
-# first we process probs (false) then later queries (true)
-query = False
-
-for line in sys.stdin.readlines():
-    line = line.strip().split()
-    if len(line) == 0:
-        query = True
-    elif not query:
-        probs[line[0]] = float(line[1])
-    else:
-        prob = 1
-        for char in line[0]:
-            if char in probs:
-                prob *= probs[char]
-        print('{:.3f}'.format(prob))
+exit()
