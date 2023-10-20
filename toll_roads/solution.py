@@ -18,3 +18,5 @@ for line in sys.stdin.readlines():
             if char in probs:
                 prob *= probs[char]
         print('{:.3f}'.format(prob))
+
+exit()
