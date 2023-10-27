@@ -1,0 +1,1 @@
+import sys; print(*[f'{line.strip()} {"1" * (int(line) - 1)}0' for line in sys.stdin.readlines()], sep='\n'); exit()
